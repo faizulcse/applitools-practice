@@ -1,2 +1,4 @@
 .idea/
 applitools-practice.iml
+/driver
+/target
