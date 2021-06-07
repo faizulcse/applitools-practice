@@ -10,6 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class AppliToolTest {
     WebDriver driver;
     Eyes eyes;
@@ -19,7 +22,6 @@ public class AppliToolTest {
         @Override
         protected void starting(Description description) {
             testName = description.getDisplayName();
-            System.out.println(testName);
         }
     };
 
@@ -27,6 +29,7 @@ public class AppliToolTest {
     public void setUp() {
         System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, System.getProperty("user.dir") + "/driver/" + "chromedriver");
         System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+        Logger.getLogger("org.openqa.selenium").setLevel(Level.OFF);
 
         eyes = new Eyes();
         eyes.setApiKey(System.getenv("APPLITOOLS_API_KEY"));
